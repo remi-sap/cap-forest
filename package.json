@@ -1,0 +1,69 @@
+{
+    "name": "forest",
+    "version": "1.0.0",
+    "description": "Sample project to show geospatial extensions.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^5",
+        "@sap/hdbext": "^7.2.0",
+        "express": "^4",
+        "wkx": "^0.5.0",
+        "got": "^11.8.2",
+        "hdb": "^0.18.3",
+        "sap-hdbext-promisfied": "^2.202108.3"
+    },
+    "devDependencies": {
+        "@sap/hdi-deploy": "^4.2.0",
+        "sqlite3": "^5.0.2"
+    },
+    "scripts": {
+        "start": "cds run"
+    },
+    "eslintConfig": {
+        "extends": "eslint:recommended",
+        "env": {
+            "es2020": true,
+            "node": true,
+            "jest": true,
+            "mocha": true
+        },
+        "globals": {
+            "SELECT": true,
+            "INSERT": true,
+            "UPDATE": true,
+            "DELETE": true,
+            "CREATE": true,
+            "DROP": true,
+            "CDL": true,
+            "CQL": true,
+            "CXL": true,
+            "cds": true
+        },
+        "rules": {
+            "no-console": "off",
+            "require-atomic-updates": "off"
+        },
+        "cds": {
+            "requires": {
+                "db": {
+                    "kind": "hana"
+                }
+            },
+            "hana": {
+                "deploy-format": "hdbtable"
+            }
+        }
+    },
+    "cds": {
+        "requires": {
+            "db": {
+                "kind": "hana"
+            }
+        },
+        "hana": {
+            "deploy-format": "hdbtable"
+        }
+    }
+}

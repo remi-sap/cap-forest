@@ -1,0 +1,12 @@
+PROCEDURE "checkWildLifeSanctuary" ( IN POLYGON_AS_WKT NVARCHAR(16000), IN HARVESTING_DATE DATE, OUT LABEL_SANCTUARY NVARCHAR(255) )
+LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN 
+
+  select top 1 label into LABEL_SANCTUARY DEFAULT NULL
+  from com_test_forest_WildLifeSanctuary
+  where geom.ST_IntersectsFilter(ST_GeomFromWKT(:POLYGON_AS_WKT)) = 1
+    and :HARVESTING_DATE between DT_begin and DT_end;
+
+END

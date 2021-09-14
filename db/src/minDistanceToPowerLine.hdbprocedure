@@ -1,0 +1,11 @@
+PROCEDURE "minDistanceToPowerLine" ( x double, y double, OUT MIN_DISTANCE_METER DOUBLE )
+LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   READS SQL DATA AS
+BEGIN 
+
+  select top 1 geom.ST_SRID(1000004326).ST_Distance(NEW ST_Point(:x, :y).ST_SRID(1000004326), 'meter') into MIN_DISTANCE_METER
+  from com_test_forest_POWERLINE
+  order by geom.ST_Distance(NEW ST_Point(:x, :y)); 
+
+END

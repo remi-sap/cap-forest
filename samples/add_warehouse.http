@@ -1,0 +1,24 @@
+###
+POST http://localhost:4004/forest/Warehouse
+Content-Type: application/json
+
+
+{
+    "ID": 1,
+    "label": "Warehouse 1",
+    "address":  "okipii, Finland"
+}
+
+###
+POST http://localhost:4004/forest/Warehouse
+Content-Type: application/json
+
+
+{
+    "ID": 2,
+    "label": "Warehouse south of Oulu",
+    "address":  "Tuposkorva 1, 91910 Liminka, Finland"
+}
+
+### Fetch 1 or 2
+GET http://localhost:4004/forest/Warehouse/2
